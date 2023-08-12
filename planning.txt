@@ -1,0 +1,18 @@
+NFC / QR URL needs to contain the following data
+set ID to crossreference how many tests have been used, ident, etc
+Quantity of tests originally (5)
+Type of test (to determine if is valid) (0=Test,1=COVID,etc)
+Security integer (basic cryptography to prevent low-level data poisoning)
+
+(24378)(05)(01)(34)
+
+243785134 would be the data encoded with a URL on the NFC or QR code. The program reads
+right to left. Two digit security code, 1 digit test type, 2 digit test quantity, and the rest
+is a "serial number" of sorts to deal with identification.
+
+Each test cassette would be numbered, to make reporting easier. User interface will allow user to select test and report result.
+
+User will be able to access their history, report data, and be directed to telehealth or local doctors if needed, as well as find
+easy-to-access and understandable information regarding their eligibility for Paxlovid and vaccinations.
+
+The admin side will allow tests to be examined individually, marked for review, or examined as a whole to see trends and groupings.

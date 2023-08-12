@@ -1,0 +1,48 @@
+body {
+	background: url("RAT.png")
+	fixed center;
+	background-size: 30%;
+}
+
+.wrap {
+	width: 98%; 
+	margin: auto; 
+	overflow: hidden;
+}
+
+.right {
+	float: right; 
+	height: 510px; 
+	width: 49%; 
+	background: rgba(173, 216, 230, 0.5);
+	box-sizing: border-box;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.left {
+	float: left; 
+	height: 250px; 
+	margin-bottom: 10px; 
+	width: 49%;
+	box-sizing: border-box;
+    padding: 10px;
+    border-radius: 20px;
+}
+	
+.left.top {
+	background: rgba(157, 31, 55, 0.5);
+}
+
+.left.bot {
+	background: rgba(255, 255, 255, 0.5);
+}
+
+@media all and (max-width: 400px
+) {
+    .left, .right {
+		float: none; 
+		margin-bottom: 5px; 
+		height: 200px;
+	}
+}
