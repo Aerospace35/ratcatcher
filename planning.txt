@@ -16,3 +16,34 @@ User will be able to access their history, report data, and be directed to teleh
 easy-to-access and understandable information regarding their eligibility for Paxlovid and vaccinations.
 
 The admin side will allow tests to be examined individually, marked for review, or examined as a whole to see trends and groupings.
+
+
+DATABASE
+
+User information as logged in the database:
+
+UserID
+Name
+Email
+Phone
+Home Town
+Province
+Country
+Number of tests reported
+Last test timestamp
+Flagged (1=true, 0=false)
+IsVaccinated (1=true, 0=false)
+
+Test information as logged in the database:
+
+UserID (of who did the test)
+TestID (11 digits)(null if unsupported)
+Location
+RecentTravel (1=true, 0=false)
+WhereTravel (N/A if no travel)
+Result (1=positive, 0=negative)
+Symptoms
+
+
+
+

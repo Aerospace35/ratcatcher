@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
-$username = "username";
-$password = "password";
+$username = "ratcatcher";
+$password = "12345";
 $dbname = "ratcatcher";
 
 // Create connection
