@@ -59,7 +59,7 @@ $sql.="UPDATE users SET teststaken = teststaken + 1 WHERE user_id='$userid'";
 
 if ($conn->multi_query($sql) === TRUE) {
   echo "New records created successfully";
-  //header('Location: ../index.php?thanks=true');
+  header('Location: ../index.php?thanks=true');
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }

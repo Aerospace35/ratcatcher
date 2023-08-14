@@ -1,7 +1,7 @@
 <?php
 $thanks = $_GET['thanks'];
 if(isset($thanks)) {
-	echo "<h1><span style=\"color: #000;background: #fff;\">Please check your email to confirm this test!</span></h1> <br><br>";
+	echo "<h1><span style=\"color: #000;background: #fff;\">Please check your email to confirm this test! (DISABLED FOR DEMO!!)</span></h1> <br><br>";
 }
 ?>
 <title>ratcatcher- By Brodie Friesen</title>

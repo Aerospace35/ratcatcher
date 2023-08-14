@@ -15,7 +15,7 @@ Each test cassette would be numbered, to make reporting easier. User interface w
 User will be able to access their history, report data, and be directed to telehealth or local doctors if needed, as well as find
 easy-to-access and understandable information regarding their eligibility for Paxlovid and vaccinations.
 
-The admin side will allow tests to be examined individually, marked for review, or examined as a whole to see trends and groupings.
+The admin side will allow tests to be examined individually, marked for review, or examined as a whole.
 
 
 DATABASE
