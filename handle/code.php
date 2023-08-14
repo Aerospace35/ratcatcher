@@ -6,10 +6,8 @@ include("connection.php");
 $code = $_POST['code'];
 echo "<h3>Test Kit Information</h3>";
 if(isset($code)) {
-	echo "Code Received <br><br>";
 } else {
 	$code = $_GET['code'];
-	echo "Code Received <br><br>";
 }
 
 $code = filter_var($code, FILTER_SANITIZE_NUMBER_INT);
@@ -30,20 +28,19 @@ function interpretresult($dataresult) {
 	}
 }
 
-
-$sql = "SELECT result, user_id, time FROM tests WHERE test_id='$code'";
+$sql = "SELECT testresult, user_id, timeofreport FROM tests WHERE testserial='$code'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "User ID: " . $row["user_id"]. " - Date: " . date('m/d/Y H:i:s', $row["time"]). " - Result: " . interpretresult($row["result"]). "<br>";
+    echo "User ID: " . $row["user_id"]. " - Date: " . date('m/d/Y H:i:s', $row["timeofreport"]). " - Result: " . interpretresult($row["testresult"]). "<br>";
   }
 } else {
-  echo "no previous records for this test";
+  echo "no previous records for this test kit";
 }
 //The following query returns how many times this test ID has been used
-$sql = "SELECT * from tests WHERE test_id='$code'";
+$sql = "SELECT * from tests WHERE testserial='$code'";
 
 $result = $conn->query($sql);
 
@@ -55,16 +52,22 @@ $conn->close();
 echo "<br>";
 $availabletests = $testnumber-$rowcount;
 echo $availabletests;
-echo " tests remaining in the box";
+echo " tests remaining in the box ";
 ?>
 
-<br><br>
-<button class="modal-button" href="#statusmodal" type="button">Report Test Result</button>
+
+<?php
+if($rowcount >= $testnumber) {
+	echo "<button class=\"modal-button\" type=\"button\">All tests have been used</button>
+";
+} else {
+	echo "<button class=\"modal-button\" href=\"#statusmodal\" type=\"button\">Report Test Result</button>
+";
+}
+?>
 </div>
 </div>
 <link rel="stylesheet" href="../assets/main.css" charset="utf-8" />
-
-
 
 
 <div id="statusmodal" class="modal">
@@ -87,10 +90,10 @@ echo " tests remaining in the box";
 		<option value="0">Prefer not to say</option>
 		</select>
 		<br> <br>
-		<label for="result">Result</label><br>
-		<select name="result" id="result">
-		<option value="positive">Positive</option>
-		<option value="negative">Negative</option>
+		<label for="testresult">Result</label><br>
+		<select name="testresult" id="testresult">
+		<option value="1">Positive</option>
+		<option value="0">Negative</option>
 		</select>
 		<br> <br>
 		<input type="text" id="city" name="city" placeholder="city"><br><br>

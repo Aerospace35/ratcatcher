@@ -11,8 +11,7 @@ body {
 }
 
 .right {
-	float: right; 
-	height: 510px; 
+	float: right;  
 	width: 49%; 
 	background: rgba(173, 216, 230, 0.5);
 	box-sizing: border-box;
@@ -22,14 +21,13 @@ body {
 
 .left {
 	float: left; 
-	height: 300px; 
 	margin-bottom: 10px; 
 	width: 49%;
 	box-sizing: border-box;
     padding: 10px;
     border-radius: 20px;
 }
-	
+
 .left.top {
 	background: rgba(157, 31, 55, 0.5);
 }

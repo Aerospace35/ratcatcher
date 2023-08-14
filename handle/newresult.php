@@ -7,7 +7,7 @@ $name = $_POST["name"];
 $phone = $_POST["phone"];
 $email = $_POST["email"];
 $vaxstatus = $_POST["vaxstatus"];
-$testresult = $_POST["result"];
+$testresult = $_POST["testresult"];
 $city = $_POST["city"];
 $symptoms = $_POST["symptoms"];
 $code = $_POST["code"];
@@ -45,29 +45,40 @@ if ($result->num_rows > 0) {
 if($data == "notpresent") {
     $sql="INSERT INTO users (user_id, name, email, phone, isvaccinated, city, teststaken, flagged)
 VALUES ('$userid', '$name', '$email', '$phone', '$vaxstatus', '$city', '0', '0');";
-$sql.="INSERT INTO tests (test_id, testserial, user_id, city, result, symptoms, recent_travel, where_travel)
-VALUES ('$testid', '$testserial', '$userid', '$city', '$testresult', '$symptoms', '0', '0');";
+$sql.="INSERT INTO tests (test_id, testserial, user_id, city, testresult, symptoms, recent_travel, where_travel, timeofreport)
+VALUES ('$testid', '$testserial', '$userid', '$city', '$testresult', '$symptoms', '0', '0', '$time');";
+$sql.="UPDATE users SET teststaken = teststaken + 1 WHERE user_id='$userid'";
 } else {
-    $sql="INSERT INTO tests (test_id, testserial, user_id, city, result, symptoms, recent_travel, where_travel)
-VALUES ('$testid', '$testserial', '$userid', '$city', '$testresult', '$symptoms', '0', '0');";
+    $sql="INSERT INTO tests (test_id, testserial, user_id, city, testresult, symptoms, recent_travel, where_travel, timeofreport)
+VALUES ('$testid', '$testserial', '$userid', '$city', '$testresult', '$symptoms', '0', '0', '$time');";
+$sql.="UPDATE users SET teststaken = teststaken + 1 WHERE user_id='$userid'";
 }
+
+
+
 
 if ($conn->multi_query($sql) === TRUE) {
   echo "New records created successfully";
-  header('Location: ../index.php?thanks=true');
+  //header('Location: ../index.php?thanks=true');
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "SELECT * FROM tests WHERE user_id='$userid';";
-$result = $conn->query($sql);
-$rowcount = mysqli_num_rows( $result );
-$conn->close();
+//The following query returns how many times this test ID has been used
+$sql = "SELECT * from tests WHERE testserial='$code'";
+
+$result3 = $conn->query($sql);
+
+    // Return the number of rows in result set
+    $rowcount = mysqli_num_rows( $result3 );
+    
 
 echo "<br>";
-$availabletests = $testnumber - $rowcount;
+$availabletests = $testnumber-$rowcount;
 echo $availabletests;
-echo " tests remaining in the box";
+echo "";
+$conn->close();
+
 ?>
 </div>
 </div>
