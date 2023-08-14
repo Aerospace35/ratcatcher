@@ -27,6 +27,8 @@ It is all running on an Apache web server with PHP 7.4... so very simple constru
 
 PHP is a really fun and simple language once you learn it. I've been using it for about 4 years now. Even so, I still forgot some semicolons while building ratcatcher. As well, there is a SQL statement that used the variable "$result" as a stand-in for the test result (positive or negative). As a result, I spent an hour and a half debugging because there was another variable called request, used by one of my SQL handling functions! I love PHP, but sometimes it is pretty frustrating.
 
+As well, the time crunch was difficult. Had to adhere to a really tight schedule to make everything work on time.
+
 ## Accomplishments
 
 This is the biggest PHP web app I have successfully developed independently. Typically I rely heavily on existing projects, but in this case I had to do it from scratch, with just the PHP manual and my own brain. I think that is my biggest accomplishment here- moving away from borrowing off of GitHub, and starting to contribute beneficial and well-thought-out programs of my own.
