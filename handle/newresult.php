@@ -23,6 +23,7 @@ $city = filter_var($city, FILTER_SANITIZE_STRING);
 $symptoms = filter_var($symptoms, FILTER_SANITIZE_STRING);
 
 $time = time();
+$testserial = "99";
 $testserial = $code;
 $testid = $code+$time;
 $time = time();
